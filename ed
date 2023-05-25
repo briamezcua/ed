@@ -1,0 +1,37 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class detectionZone : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Use the Console to understand what your code is doing
+        Debug.Log("HIT DETECTED!");
+
+        if (other.gameObject.tag == "theed")
+        {
+            // Remove any material already on the "lisa" GameObject then set the color to be green
+            GameObject.FindWithTag("first").GetComponent<Renderer>().material.color = Color.green;
+            GameObject.FindWithTag("first1").GetComponent<Renderer>().material.color = Color.green;
+            GameObject.FindWithTag("first2").GetComponent<Renderer>().material.color = Color.green;
+            GameObject.FindWithTag("first3").GetComponent<Renderer>().material.color = Color.green;
+            GameObject.FindWithTag("first4").GetComponent<Renderer>().material.color = Color.green;
+            GameObject.FindWithTag("egg").AddComponent<Rigidbody>();
+            GameObject.FindWithTag("egg").GetComponent<Rigidbody>().drag = 2;
+        }
+    }
+}
